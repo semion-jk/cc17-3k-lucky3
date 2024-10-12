@@ -3,10 +3,8 @@ package com.example.labadash_application
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import androidx.activity.enableEdgeToEdge
+import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,9 +13,9 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        Handler().postDelayed({
+        Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this@MainActivity, Home::class.java)
             startActivity(intent)
-        }, 3000)
+        }, 2000)
         }
     }
