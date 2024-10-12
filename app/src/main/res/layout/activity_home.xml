@@ -25,9 +25,7 @@
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintHorizontal_bias="0.0"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/blue_background" />
 
@@ -65,7 +63,6 @@
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
         android:backgroundTint="#FFDDDD"
-        android:hint="Username"
         android:text="Username"
         android:padding="16dp"
         android:textColor="#123EC3"
@@ -80,7 +77,6 @@
         android:layout_height="62dp"
         android:layout_marginTop="8dp"
         android:backgroundTint="#FFDDDD"
-        android:hint="Password"
         android:text="Password"
         android:padding="16dp"
         android:textColor="#123EC3"
@@ -113,16 +109,6 @@
         app:layout_constraintStart_toStartOf="@+id/white_background"
         app:layout_constraintTop_toBottomOf="@+id/forgot_password" />
 
-    <Button
-        android:id="@+id/sign_up"
-        android:layout_width="252dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="108dp"
-        android:background="@drawable/shape_transparent"
-        android:elevation="0dp"
-        android:text="Don't have an account?\ Sign Up"
-            
     <TextView
         android:layout_width="145dp"
         android:layout_height="20dp"
