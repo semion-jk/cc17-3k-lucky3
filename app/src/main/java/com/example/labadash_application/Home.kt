@@ -16,5 +16,12 @@ class Home : AppCompatActivity() {
             val intent = Intent(this, SignupActivity::class.java)
             startActivity(intent)
         }
+
+        val donelogin = findViewById<Button>(R.id.login_done_button)
+
+        donelogin.setOnClickListener {
+            val intent = Intent(this, welcomeActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
