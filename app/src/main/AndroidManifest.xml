@@ -15,7 +15,7 @@
             android:name=".SignupActivity"
             android:label="false"/>
         <activity
-            android:name=".Home"
+            android:name=".LoginActivity"
             android:label="false"/>
         <activity
             android:name=".MainActivity"
