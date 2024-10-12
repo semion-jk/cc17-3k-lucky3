@@ -6,4 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/starting_screen"/>
+    android:background="@drawable/startscreen">
+
+</androidx.constraintlayout.widget.ConstraintLayout>
