@@ -9,8 +9,11 @@
         android:theme="@style/Theme.Labadash_application"
         tools:targetApi="31">
         <activity
+            android:name=".SignupActivity"
+            android:label="false"/>
+        <activity
             android:name=".Home"
-            android:label="Home"/>
+            android:label="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
