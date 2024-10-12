@@ -26,8 +26,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintHorizontal_bias="0.0"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/blue_background" />
 
@@ -38,6 +36,7 @@
         android:layout_marginTop="112dp"
         android:gravity="center"
         android:text="Welcome"
+        android:textStyle="bold"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="@+id/blue_background"
@@ -52,6 +51,7 @@
         android:layout_marginTop="12dp"
         android:gravity="center"
         android:text="Log in!"
+        android:textStyle="bold"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/blue_background"
@@ -66,7 +66,6 @@
         android:layout_marginTop="32dp"
         android:backgroundTint="#FFDDDD"
         android:hint="Username"
-        android:text="Username"
         android:padding="16dp"
         android:textColor="#123EC3"
         app:layout_constraintEnd_toEndOf="@+id/white_background"
@@ -81,7 +80,6 @@
         android:layout_marginTop="8dp"
         android:backgroundTint="#FFDDDD"
         android:hint="Password"
-        android:text="Password"
         android:padding="16dp"
         android:textColor="#123EC3"
         app:layout_constraintEnd_toEndOf="@+id/white_background"
@@ -122,25 +120,6 @@
         android:background="@drawable/shape_transparent"
         android:elevation="0dp"
         android:text="Don't have an account?\ Sign Up"
-            
-    <TextView
-        android:layout_width="145dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="248dp"
-        android:layout_marginTop="144dp"
-        android:text="Don't have an account?"
-        android:textColor="#0066CC"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/white_background"
-        app:layout_constraintTop_toBottomOf="@+id/login_button" />
-
-    <TextView
-        android:id="@+id/sign_up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="340dp"
-        android:layout_marginTop="176dp"
-        android:text="Sign Up"
         android:textColor="#0066CC"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/white_background"
