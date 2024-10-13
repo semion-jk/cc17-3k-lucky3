@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">labadash_application</string>
+    <string name="service_type_prompt">Choose services type</string>
+    <string name="time_date_prompt">Choose time and date</string>
+    <string name="laundry_preferences_prompt">Laundry preferences</string>
+    <string name="pickup_delivery_prompt">Pickup and delivery point</string>
+    <string name="payment_prompt">Payment</string>
 </resources>

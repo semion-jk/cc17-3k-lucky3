@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <TextView
+        android:id="@+id/labadash_title"
+        android:layout_width="190dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="80sp"
+        android:layout_marginEnd="108dp"
+        android:text="LabaDash"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/dropdown_container"
+        android:layout_width="288dp"
+        android:layout_height="462dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_background"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labadash_title">
+
+        <Spinner
+            android:id="@+id/service_type_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/dropdown_background"
+            android:padding="16dp"
+            android:prompt="@string/service_type_prompt" />
+
+        <Spinner
+            android:id="@+id/time_date_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/dropdown_background"
+            android:padding="16dp"
+            android:prompt="@string/time_date_prompt" />
+
+        <Spinner
+            android:id="@+id/laundry_preferences_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/dropdown_background"
+            android:padding="16dp"
+            android:prompt="@string/laundry_preferences_prompt" />
+
+        <Spinner
+            android:id="@+id/pickup_delivery_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/dropdown_background"
+            android:padding="16dp"
+            android:prompt="@string/pickup_delivery_prompt" />
+
+        <Spinner
+            android:id="@+id/payment_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/dropdown_background"
+            android:padding="16dp"
+            android:prompt="@string/payment_prompt" />
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="171dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/button_blue"
+            android:text="Next"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/previous_element_id" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_nav"
+        android:layout_width="410dp"
+        android:layout_height="85dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/home_button"
+            android:layout_width="108dp"
+            android:layout_height="85dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_home"/>
+
+        <ImageView
+            android:id="@+id/map_button"
+            android:layout_width="115dp"
+            android:layout_height="85dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_map" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
