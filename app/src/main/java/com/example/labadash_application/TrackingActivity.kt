@@ -2,14 +2,16 @@ package com.example.labadash_application
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
-class AppHomeActivity : AppCompatActivity() {
+class TrackingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.app_home_page)
+        setContentView(R.layout.tracking_screen)
 
         val laundry = findViewById<Button>(R.id.laundryButton)
 
@@ -17,10 +19,11 @@ class AppHomeActivity : AppCompatActivity() {
             val intent = Intent(this, OrderScreenActivity::class.java)
             startActivity(intent)
         }
-        val tracking = findViewById<ImageView>(R.id.mapIcon)
 
-        tracking.setOnClickListener {
-            val intent = Intent(this, TrackingActivity::class.java)
+        val home = findViewById<ImageView>(R.id.homeIcon)
+
+        home.setOnClickListener {
+            val intent = Intent(this, AppHomeActivity::class.java)
             startActivity(intent)
         }
 
@@ -29,12 +32,7 @@ class AppHomeActivity : AppCompatActivity() {
         menu.setOnClickListener {
             val intent = Intent(this, ProfileSettingActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(R.anim.right_animation, R.anim.left_animation)
         }
-    }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        overridePendingTransition(R.anim.right_animation, R.anim.left_animation)
     }
 }
