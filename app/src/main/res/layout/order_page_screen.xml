@@ -94,8 +94,8 @@
 
     <LinearLayout
         android:id="@+id/bottom_nav"
-        android:layout_width="410dp"
-        android:layout_height="85dp"
+        android:layout_width="426dp"
+        android:layout_height="84dp"
         android:background="#FFFFFF"
         android:gravity="center"
         android:orientation="horizontal"
@@ -109,7 +109,7 @@
             android:layout_width="108dp"
             android:layout_height="85dp"
             android:padding="8dp"
-            android:src="@drawable/ic_home"/>
+            android:src="@drawable/ic_home" />
 
         <ImageView
             android:id="@+id/map_button"
