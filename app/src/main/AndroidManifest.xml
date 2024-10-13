@@ -18,6 +18,9 @@
             android:name=".AppHomeActivity"
             android:label="false"/>
         <activity
+            android:name=".SignUpPage2"
+            android:label="false"/>
+        <activity
             android:name=".SignupActivity"
             android:label="false"/>
         <activity

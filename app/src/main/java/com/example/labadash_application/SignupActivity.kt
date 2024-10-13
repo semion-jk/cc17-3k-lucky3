@@ -16,10 +16,10 @@ class SignupActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
-        val sign = findViewById<Button>(R.id.signupButton)
+        val next = findViewById<Button>(R.id.nextButton)
 
-        sign.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
+        next.setOnClickListener {
+            val intent = Intent(this, SignUpPage2::class.java)
             startActivity(intent)
         }
     }

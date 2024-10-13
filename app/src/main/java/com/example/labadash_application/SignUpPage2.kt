@@ -5,15 +5,15 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
-class AppHomeActivity : AppCompatActivity() {
+class SignUpPage2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.app_home_page)
+        setContentView(R.layout.sign_up_page_2)
 
-        val laundry = findViewById<Button>(R.id.laundryButton)
+        val sign = findViewById<Button>(R.id.signupButton)
 
-        laundry.setOnClickListener {
-            val intent = Intent(this, OrderScreenActivity::class.java)
+        sign.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }

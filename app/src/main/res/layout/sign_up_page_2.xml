@@ -19,8 +19,8 @@
 
         <TextView
             android:id="@+id/titleText"
-            android:layout_width="256dp"
-            android:layout_height="226dp"
+            android:layout_width="261dp"
+            android:layout_height="224dp"
             android:layout_marginTop="50dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
@@ -51,7 +51,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    android:hint="Name"
+                    android:hint="Create Username"
                     android:padding="12dp"
                     android:textColorHint="#3441FA"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -64,53 +64,25 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:hint="Contact No."
+                    android:hint="Create Password"
                     android:padding="12dp"
                     android:textColorHint="#3441FA"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/nameInput" />
 
-                <EditText
-                    android:id="@+id/addressInput"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:hint="Address"
-                    android:padding="12dp"
-                    android:textColorHint="#3441FA"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/contactInput" />
-
                 <Button
-                    android:id="@+id/nextButton"
+                    android:id="@+id/signupButton"
                     android:layout_width="190dp"
                     android:layout_height="48dp"
                     android:layout_marginHorizontal="24dp"
                     android:layout_marginTop="40dp"
                     android:backgroundTint="#0066CC"
-                    android:text="Next"
+                    android:text="Sign up"
                     android:textColor="@android:color/white"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/addressInput" />
-
-                <Button
-                    android:id="@+id/loginText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/shape_transparent"
-                    android:elevation="0dp"
-                    android:text="already have account? Log in"
-                    android:textColor="#3441FA"
-                    android:textSize="15sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/signupButton"
-                    app:layout_constraintVertical_bias="0.535" />
+                    app:layout_constraintTop_toBottomOf="@+id/contactInput" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
