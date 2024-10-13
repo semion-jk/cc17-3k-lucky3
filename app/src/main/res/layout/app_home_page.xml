@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0C2E6A"
-    tools:context=".MainActivity">
+    android:background="#0C2E6A">
 
     <ImageView
         android:id="@+id/menuIcon"
