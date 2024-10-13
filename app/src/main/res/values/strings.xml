@@ -4,5 +4,31 @@
     <string name="time_date_prompt">Choose time and date</string>
     <string name="laundry_preferences_prompt">Laundry preferences</string>
     <string name="pickup_delivery_prompt">Pickup and delivery point</string>
-    <string name="payment_prompt">Payment</string>
+
+    <string-array name="service_types">
+        <item>Choose Services Type</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="time_date">
+        <item>Choose Time and Date</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="laundry_preferences">
+        <item>Choose Laundry Preference</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="pickup_delivery">
+        <item>Pickup Point</item>
+        <item>1</item>
+    </string-array>
+
 </resources>
