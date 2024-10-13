@@ -42,13 +42,14 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/dropdown_background"
             android:padding="16dp"
-            android:prompt="@string/service_type_prompt" />
+            android:prompt="@string/service_type_prompt"/>
 
         <Spinner
             android:id="@+id/time_date_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:hint="Choose Time and Date"
             android:background="@drawable/dropdown_background"
             android:padding="16dp"
             android:prompt="@string/time_date_prompt" />
@@ -58,6 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:hint="Choose Laundry Preference"
             android:background="@drawable/dropdown_background"
             android:padding="16dp"
             android:prompt="@string/laundry_preferences_prompt" />
@@ -67,18 +69,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:hint="Pickup Point"
             android:background="@drawable/dropdown_background"
             android:padding="16dp"
             android:prompt="@string/pickup_delivery_prompt" />
 
-        <Spinner
-            android:id="@+id/payment_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/dropdown_background"
-            android:padding="16dp"
-            android:prompt="@string/payment_prompt" />
 
         <Button
             android:id="@+id/next_button"
