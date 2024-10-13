@@ -5,21 +5,15 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
-class SignupActivity : AppCompatActivity() {
+class SignUpPage2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.sign_up_activity)
+        setContentView(R.layout.sign_up_page_2)
 
-        val login = findViewById<Button>(R.id.loginText)
+        val sign = findViewById<Button>(R.id.signupButton)
 
-        login.setOnClickListener {
+        sign.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-        }
-        val next = findViewById<Button>(R.id.nextButton)
-
-        next.setOnClickListener {
-            val intent = Intent(this, SignUpPage2::class.java)
             startActivity(intent)
         }
     }
