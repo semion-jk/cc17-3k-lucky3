@@ -9,6 +9,9 @@
         android:theme="@style/Theme.Labadash_application"
         tools:targetApi="31">
         <activity
+            android:name=".OrderScreenActivity"
+            android:label="false"/>
+        <activity
             android:name=".welcomeActivity"
             android:label="false"/>
         <activity
