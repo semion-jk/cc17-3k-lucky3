@@ -3,6 +3,7 @@ package com.example.labadash_application
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
 class AppHomeActivity : AppCompatActivity() {
@@ -16,5 +17,18 @@ class AppHomeActivity : AppCompatActivity() {
             val intent = Intent(this, OrderScreenActivity::class.java)
             startActivity(intent)
         }
+
+        val menu = findViewById<ImageView>(R.id.menuIcon)
+
+        menu.setOnClickListener {
+            val intent = Intent(this, ProfileSettingActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.right_animation, R.anim.left_animation)
+        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(R.anim.right_animation, R.anim.left_animation)
     }
 }
