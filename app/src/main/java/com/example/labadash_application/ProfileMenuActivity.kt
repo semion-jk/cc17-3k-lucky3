@@ -24,6 +24,12 @@ class ProfileMenuActivity : AppCompatActivity() {
             val intent = Intent(this, EditProfileActivity::class.java)
             startActivity(intent)
         }
+        val account = findViewById<TextView>(R.id.account)
+
+        account.setOnClickListener {
+            val intent = Intent(this, AccountPageActivity::class.java)
+            startActivity(intent)
+        }
 
         val contentFrame = findViewById<FrameLayout>(R.id.content_frame)
 
