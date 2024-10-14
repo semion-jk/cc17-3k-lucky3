@@ -2,9 +2,6 @@ package com.example.labadash_application
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -38,7 +35,7 @@ class TrackingActivity : AppCompatActivity() {
         val menu = findViewById<ImageView>(R.id.menuIcon)
 
         menu.setOnClickListener {
-            val intent = Intent(this, ProfileSettingActivity::class.java)
+            val intent = Intent(this, ProfileMenuActivity::class.java)
             startActivity(intent)
         }
 
