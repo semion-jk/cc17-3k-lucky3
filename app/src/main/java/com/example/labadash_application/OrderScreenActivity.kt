@@ -29,6 +29,12 @@ class OrderScreenActivity : AppCompatActivity() {
             val intent = Intent(this, TrackingActivity::class.java)
             startActivity(intent)
         }
+        val confirmation = findViewById<Button>(R.id.next_button)
+
+        confirmation.setOnClickListener {
+            val intent = Intent(this, OrderConfirmationActivity::class.java)
+            startActivity(intent)
+        }
 
         setupSpinner(R.id.service_type_spinner, R.array.service_types)
         setupSpinner(R.id.laundry_preferences_spinner, R.array.laundry_preferences)
