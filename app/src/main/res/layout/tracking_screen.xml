@@ -77,16 +77,29 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/laundryButton"
+    <ImageButton
+        android:id="@+id/imageButton"
         android:layout_width="113dp"
         android:layout_height="106dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="36dp"
         android:background="@drawable/triangle_shape"
+        android:contentDescription="Button image"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/buttonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="80dp"
         android:text="Laundry"
         android:textColor="@android:color/black"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
