@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class TrackingActivity : AppCompatActivity() {
@@ -13,7 +15,13 @@ class TrackingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tracking_screen)
 
-        val laundry = findViewById<Button>(R.id.laundryButton)
+        val laundry = findViewById<ImageButton>(R.id.imageButton)
+
+        laundry.setOnClickListener {
+            val intent = Intent(this, OrderScreenActivity::class.java)
+            startActivity(intent)
+        }
+        val laundry2 = findViewById<TextView>(R.id.buttonText)
 
         laundry.setOnClickListener {
             val intent = Intent(this, OrderScreenActivity::class.java)

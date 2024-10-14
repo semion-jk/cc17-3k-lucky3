@@ -32,23 +32,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/laundryButton"
-        android:layout_width="133dp"
-        android:layout_height="146dp"
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="113dp"
+        android:layout_height="106dp"
         android:layout_marginBottom="36dp"
         android:background="@drawable/triangle_shape"
+        android:contentDescription="Button image"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/buttonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="80dp"
         android:text="Laundry"
         android:textColor="@android:color/black"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/bottomNav"
-        android:layout_width="426dp"
-        android:layout_height="85dp"
+        android:layout_width="427dp"
+        android:layout_height="72dp"
         android:background="#FFFFFF"
         android:gravity="center"
         android:orientation="horizontal"
@@ -59,15 +72,15 @@
 
         <ImageView
             android:id="@+id/homeIcon"
-            android:layout_width="108dp"
-            android:layout_height="85dp"
+            android:layout_width="112dp"
+            android:layout_height="62dp"
             android:padding="8dp"
             android:src="@drawable/ic_home" />
 
         <ImageView
             android:id="@+id/mapIcon"
-            android:layout_width="115dp"
-            android:layout_height="85dp"
+            android:layout_width="112dp"
+            android:layout_height="62dp"
             android:padding="8dp"
             android:src="@drawable/ic_map" />
     </LinearLayout>
