@@ -46,12 +46,11 @@
             android:textColor="@android:color/black"
             android:textStyle="bold" />
 
-        <EditText
+        <TextView
             android:id="@+id/nameInput"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/rounded_input"
-            android:hint="Enter Name"
             android:textColorHint="@color/black"
             android:padding="10dp"
             android:paddingVertical="12dp"
@@ -74,12 +73,11 @@
             android:textColor="@android:color/black"
             android:textStyle="bold" />
 
-        <EditText
+        <TextView
             android:id="@+id/phoneInput"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/rounded_input"
-            android:hint="Enter Phone Number"
             android:textColorHint="@color/black"
             android:padding="10dp"
             android:paddingVertical="12dp"
@@ -102,12 +100,11 @@
             android:textColor="@android:color/black"
             android:textStyle="bold" />
 
-        <EditText
+        <TextView
             android:id="@+id/addressInput"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/rounded_input"
-            android:hint="Enter Address"
             android:textColorHint="@color/black"
             android:padding="10dp"
             android:paddingVertical="12dp"
