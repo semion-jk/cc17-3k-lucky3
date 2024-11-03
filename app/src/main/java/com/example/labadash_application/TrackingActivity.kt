@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 class TrackingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.tracking_screen)
+        setContentView(R.layout.active_order_card)
 
         val laundry = findViewById<ImageButton>(R.id.imageButton)
 

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class OrderConfirmationActivity : AppCompatActivity() {
@@ -39,7 +40,9 @@ class OrderConfirmationActivity : AppCompatActivity() {
         // Set up the Confirm button
         val confirmButton = findViewById<Button>(R.id.confirm_button)
         confirmButton.setOnClickListener {
-            val intent = Intent(this, TrackingActivity::class.java)
+            // Send back confirmation to AppHomeActivity
+            val intent = Intent(this, AppHomeActivity::class.java)
+            intent.putExtra("ORDER_PLACED", true) // Add an extra indicating order is placed
             startActivity(intent)
         }
     }
