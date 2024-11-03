@@ -3,6 +3,7 @@ package com.example.labadash_application
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.labadash_application.databinding.ProfileMenuScreenBinding
@@ -21,10 +22,6 @@ class ProfileMenuActivity : AppCompatActivity() {
 
         loadUserProfile()
 
-        binding.deleteAccount.setOnClickListener {
-            showDeleteConfirmationDialog()
-        }
-
         binding.account.setOnClickListener {
             startActivity(Intent(this, AccountPageActivity::class.java))
         }
@@ -34,7 +31,11 @@ class ProfileMenuActivity : AppCompatActivity() {
         }
 
         binding.logout.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
+            showLogoutConfirmationDialog()
+        }
+
+        binding.deleteAccount.setOnClickListener {
+            showDeleteConfirmationDialog()
         }
     }
 
@@ -61,9 +62,20 @@ class ProfileMenuActivity : AppCompatActivity() {
     }
 
     private fun deleteAccountData() {
-        if (dbHelper.deleteAllUsers()) {
-            clearSharedPreferences()
-            restartApp()
+        val sharedPreferences = getSharedPreferences("UserPreferences", Context.MODE_PRIVATE)
+        val username = sharedPreferences.getString("username", null)
+
+        if (username != null) {
+            // Delete user from the database using username
+            if (dbHelper.deleteUser(username)) {
+                clearSharedPreferences()
+                Toast.makeText(this, "Account Deleted Successfully", Toast.LENGTH_SHORT).show()
+                restartApp()
+            } else {
+                Toast.makeText(this, "Error deleting account", Toast.LENGTH_SHORT).show()
+            }
+        } else {
+            Toast.makeText(this, "No account to delete", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -82,5 +94,18 @@ class ProfileMenuActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         loadUserProfile()
+    }
+
+    private fun showLogoutConfirmationDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Logout")
+            .setMessage("Are you sure you want to log out?")
+            .setPositiveButton("Logout") { _, _ ->
+                clearSharedPreferences()
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
     }
 }

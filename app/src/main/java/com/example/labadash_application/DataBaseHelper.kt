@@ -36,7 +36,6 @@ class DataBaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         onCreate(db)
     }
 
-    // Method to add a new user to the database
     fun addUser(name: String, address: String, contact: String, username: String, password: String): Boolean {
         val db = this.writableDatabase
         val contentValues = ContentValues().apply {
@@ -49,10 +48,9 @@ class DataBaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
         val result = db.insert(TABLE_USERS, null, contentValues)
         db.close()
-        return result != -1L // returns true if row was inserted successfully
+        return result != -1L
     }
 
-    // Method to get a user by username and password
     fun getUser(username: String, password: String): User? {
         val db = this.readableDatabase
         val query = "SELECT $COLUMN_NAME, $COLUMN_CONTACT, $COLUMN_ADDRESS FROM $TABLE_USERS WHERE $COLUMN_USERNAME=? AND $COLUMN_PASSWORD=?"
@@ -68,13 +66,14 @@ class DataBaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                     val name = cursor.getString(nameIndex)
                     val contact = cursor.getString(contactIndex)
                     val address = cursor.getString(addressIndex)
+
                     User(name, contact, address)
                 } else {
-                    Log.e("DatabaseError", "One or more column indices are invalid")
+                    Log.e("DatabaseError", "Invalid column indices retrieved.")
                     null
                 }
             } else {
-                Log.e("DatabaseError", "No user found for the given credentials")
+                Log.e("DatabaseError", "No user found for the given credentials.")
                 null
             }
         } catch (e: Exception) {
@@ -85,14 +84,13 @@ class DataBaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
             db.close()
         }
     }
-
-    // Method to delete all users from the database
-    fun deleteAllUsers(): Boolean {
+    fun deleteUser(username: String): Boolean {
         val db = this.writableDatabase
         return try {
-            db.delete(TABLE_USERS, null, null) > 0
+            val result = db.delete(TABLE_USERS, "$COLUMN_USERNAME=?", arrayOf(username))
+            result > 0 // returns true if row was deleted successfully
         } catch (e: Exception) {
-            Log.e("DatabaseError", "Error deleting all users: ${e.message}", e)
+            Log.e("DatabaseError", "Error deleting user: ${e.message}", e)
             false
         } finally {
             db.close()
