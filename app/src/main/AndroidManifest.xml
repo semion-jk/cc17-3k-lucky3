@@ -10,37 +10,37 @@
         tools:targetApi="31">
         <activity
             android:name=".OrderConfirmationActivity"
-            android:label="false"/>
+            android:exported="false"/>
         <activity
             android:name=".AccountPageActivity"
-            android:label="false"/>
+            android:exported="false"/>
         <activity
             android:name=".EditProfileActivity"
-            android:label="false"/>
+            android:exported="false"/>
         <activity
             android:name="TrackingActivity"
-            android:label="false"/>
+            android:exported="false"/>
         <activity
             android:name=".ProfileMenuActivity"
-            android:label="false"/>
+            android:exported="false"/>
         <activity
             android:name=".OrderScreenActivity"
-            android:label="false"/>
+            android:exported="false"/>
         <activity
             android:name=".welcomeActivity"
-            android:label="false"/>
+            android:exported="false"/>
         <activity
             android:name=".AppHomeActivity"
-            android:label="false"/>
+            android:exported="false"/>
         <activity
             android:name=".SignUpPage2"
-            android:label="false"/>
+            android:exported="false"/>
         <activity
             android:name=".SignupActivity"
-            android:label="false"/>
+            android:exported="false"/>
         <activity
             android:name=".LoginActivity"
-            android:label="false"/>
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">

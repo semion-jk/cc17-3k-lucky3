@@ -20,7 +20,7 @@ class TrackingActivity : AppCompatActivity() {
         }
         val laundry2 = findViewById<TextView>(R.id.buttonText)
 
-        laundry.setOnClickListener {
+        laundry2.setOnClickListener {
             val intent = Intent(this, OrderScreenActivity::class.java)
             startActivity(intent)
         }
