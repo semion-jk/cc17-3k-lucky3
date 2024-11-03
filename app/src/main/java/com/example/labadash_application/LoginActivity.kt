@@ -43,6 +43,7 @@ class LoginActivity : AppCompatActivity() {
 
             val sharedPreferences = getSharedPreferences("UserPreferences", Context.MODE_PRIVATE)
             with(sharedPreferences.edit()) {
+                putString("username", username)
                 putString("name", user.name)
                 putString("contact", user.contact)
                 putString("address", user.address)
@@ -53,6 +54,17 @@ class LoginActivity : AppCompatActivity() {
             finish()
         } else {
             Toast.makeText(this, "Invalid Username or Password", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
+    private fun saveUserToPreferences(name: String, contact: String, address: String) {
+        val sharedPreferences = getSharedPreferences("UserPreferences", Context.MODE_PRIVATE)
+        with(sharedPreferences.edit()) {
+            putString("name", name)
+            putString("contact", contact)
+            putString("address", address)
+            apply()
         }
     }
 }
