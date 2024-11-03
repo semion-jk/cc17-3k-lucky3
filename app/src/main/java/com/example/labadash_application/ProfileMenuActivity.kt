@@ -1,42 +1,47 @@
 package com.example.labadash_application
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.FrameLayout
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.labadash_application.databinding.ProfileMenuScreenBinding
 
 class ProfileMenuActivity : AppCompatActivity() {
+
+    private lateinit var binding: ProfileMenuScreenBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.profile_menu_screen)
+        binding = ProfileMenuScreenBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val logout = findViewById<TextView>(R.id.logout)
+        loadUserProfile()
 
-        logout.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+        binding.account.setOnClickListener {
+            startActivity(Intent(this, AccountPageActivity::class.java))
         }
 
-        val editprofile = findViewById<TextView>(R.id.edit_profile)
-
-        editprofile.setOnClickListener {
-            val intent = Intent(this, EditProfileActivity::class.java)
-            startActivity(intent)
+        binding.editProfile.setOnClickListener {
+            startActivity(Intent(this, EditProfileActivity::class.java))
         }
-        val account = findViewById<TextView>(R.id.account)
-
-        account.setOnClickListener {
-            val intent = Intent(this, AccountPageActivity::class.java)
-            startActivity(intent)
+        binding.logout.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
         }
+    }
 
-        val contentFrame = findViewById<FrameLayout>(R.id.content_frame)
+    private fun loadUserProfile() {
+        val sharedPreferences = getSharedPreferences("UserPreferences", Context.MODE_PRIVATE)
+        val name = sharedPreferences.getString("name", "No Name")
+        val contact = sharedPreferences.getString("contact", "No Contact")
+        val address = sharedPreferences.getString("address", "No Address")
 
-        contentFrame.setOnClickListener {
-            val intent = Intent(this, AppHomeActivity::class.java)
-            startActivity(intent)
-            overridePendingTransition(R.anim.left2, R.anim.right2)
-        }
+        binding.userName.text = name
+        binding.userContact.text = "Contact: $contact"
+        binding.userAddress.text = "Address: $address"
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadUserProfile()
     }
 }
