@@ -48,8 +48,7 @@ class LoginActivity : AppCompatActivity() {
                 putString("address", user.address)
                 apply()
             }
-
-            val intent = Intent(this, AppHomeActivity::class.java)
+            val intent = Intent(this, welcomeActivity::class.java)
             startActivity(intent)
             finish()
         } else {

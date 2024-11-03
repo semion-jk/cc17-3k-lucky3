@@ -51,6 +51,8 @@ class DataBaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.close()
         return result != -1L // returns true if row was inserted successfully
     }
+
+    // Method to get a user by username and password
     fun getUser(username: String, password: String): User? {
         val db = this.readableDatabase
         val query = "SELECT $COLUMN_NAME, $COLUMN_CONTACT, $COLUMN_ADDRESS FROM $TABLE_USERS WHERE $COLUMN_USERNAME=? AND $COLUMN_PASSWORD=?"
@@ -62,28 +64,38 @@ class DataBaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 val contactIndex = cursor.getColumnIndex(COLUMN_CONTACT)
                 val addressIndex = cursor.getColumnIndex(COLUMN_ADDRESS)
 
-                // Check if indexes are valid
                 if (nameIndex != -1 && contactIndex != -1 && addressIndex != -1) {
                     val name = cursor.getString(nameIndex)
                     val contact = cursor.getString(contactIndex)
                     val address = cursor.getString(addressIndex)
-                    User(name, contact, address) // Return User object
+                    User(name, contact, address)
                 } else {
                     Log.e("DatabaseError", "One or more column indices are invalid")
                     null
                 }
             } else {
                 Log.e("DatabaseError", "No user found for the given credentials")
-                null // No user found
+                null
             }
         } catch (e: Exception) {
             Log.e("DatabaseError", "Error retrieving user: ${e.message}", e)
             null
         } finally {
-            cursor.close() // Ensure cursor is closed
-            db.close() // Close the database
+            cursor.close()
+            db.close()
         }
     }
 
-
+    // Method to delete all users from the database
+    fun deleteAllUsers(): Boolean {
+        val db = this.writableDatabase
+        return try {
+            db.delete(TABLE_USERS, null, null) > 0
+        } catch (e: Exception) {
+            Log.e("DatabaseError", "Error deleting all users: ${e.message}", e)
+            false
+        } finally {
+            db.close()
+        }
+    }
 }
