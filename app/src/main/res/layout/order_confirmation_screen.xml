@@ -50,21 +50,6 @@
             android:textColor="@android:color/black" />
 
         <TextView
-            android:id="@+id/time_date_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Time and Date:"
-            android:textColor="@android:color/black"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/time_date_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:textColor="@android:color/black" />
-
-        <TextView
             android:id="@+id/laundry_preferences_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -74,6 +59,21 @@
 
         <TextView
             android:id="@+id/laundry_preferences_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/time_date_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time and Date:"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/time_date_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"

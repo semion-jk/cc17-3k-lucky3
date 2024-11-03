@@ -1,6 +1,7 @@
 package com.example.labadash_application
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.labadash_application.databinding.AccountPageScreenBinding
@@ -15,6 +16,11 @@ class AccountPageActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         loadUserProfile()
+
+        binding.backButton.setOnClickListener {
+            val intent = Intent(this, ProfileMenuActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun loadUserProfile() {

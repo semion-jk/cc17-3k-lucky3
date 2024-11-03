@@ -2,55 +2,55 @@ package com.example.labadash_application
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ImageView
+import android.widget.EditText
 import android.widget.Spinner
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class OrderScreenActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.order_page_screen)
 
-        val homebutton = findViewById<ImageView>(R.id.home_button)
+        // Find the spinners and EditText fields
+        val serviceTypeSpinner = findViewById<Spinner>(R.id.service_type_spinner)
+        val timeDateInput = findViewById<EditText>(R.id.time_date_spinner) // Updated to EditText
+        val laundryPreferencesSpinner = findViewById<Spinner>(R.id.laundry_preferences_spinner)
+        val pickupLocationInput = findViewById<EditText>(R.id.pickup_delivery_spinner) // Updated to EditText
 
-        homebutton.setOnClickListener {
-            val intent = Intent(this, AppHomeActivity::class.java)
-            startActivity(intent)
-        }
-        val tracking = findViewById<ImageView>(R.id.map_button)
+        // Populate the service type spinner
+        val serviceTypes = arrayOf("Choose","Dry Cleaning", "Wash & Fold", "Pressing")
+        val serviceTypeAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, serviceTypes)
+        serviceTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        serviceTypeSpinner.adapter = serviceTypeAdapter
 
-        tracking.setOnClickListener {
-            val intent = Intent(this, TrackingActivity::class.java)
-            startActivity(intent)
-        }
-        val confirmation = findViewById<Button>(R.id.next_button)
+        // Populate the laundry preferences spinner
+        val laundryPreferences = arrayOf("Choose","Eco-friendly", "Hypoallergenic", "Scented")
+        val laundryPreferencesAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, laundryPreferences)
+        laundryPreferencesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        laundryPreferencesSpinner.adapter = laundryPreferencesAdapter
 
-        confirmation.setOnClickListener {
+        // Confirm Order Button
+        val confirmOrderButton = findViewById<Button>(R.id.next_button)
+        confirmOrderButton.setOnClickListener {
+            // Retrieve the selected or entered details
+            val serviceType = serviceTypeSpinner.selectedItem.toString()
+            val timeDate = timeDateInput.text.toString()
+            val laundryPreferences = laundryPreferencesSpinner.selectedItem.toString()
+            val pickupLocation = pickupLocationInput.text.toString()
+
+            // Create an Intent to start OrderConfirmationActivity
             val intent = Intent(this, OrderConfirmationActivity::class.java)
+            // Pass data to OrderConfirmationActivity
+            intent.putExtra("SERVICE_TYPE", serviceType)
+            intent.putExtra("TIME_DATE", timeDate)
+            intent.putExtra("LAUNDRY_PREFERENCES", laundryPreferences)
+            intent.putExtra("PICKUP_LOCATION", pickupLocation)
+
+            // Start OrderConfirmationActivity
             startActivity(intent)
         }
-
-        setupSpinner(R.id.service_type_spinner, R.array.service_types)
-        setupSpinner(R.id.laundry_preferences_spinner, R.array.laundry_preferences)
-        setupSpinner(R.id.time_date_spinner, R.array.time_date)
-        setupSpinner(R.id.pickup_delivery_spinner, R.array.pickup_delivery)
-    }
-    private fun setupSpinner(spinnerId: Int, arrayId: Int) {
-        val spinner: Spinner = findViewById(spinnerId)
-        ArrayAdapter.createFromResource(
-            this,
-            arrayId,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            spinner.adapter = adapter
-        }
-
     }
 }
