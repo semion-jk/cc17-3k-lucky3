@@ -57,7 +57,6 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-
     private fun saveUserToPreferences(name: String, contact: String, address: String) {
         val sharedPreferences = getSharedPreferences("UserPreferences", Context.MODE_PRIVATE)
         with(sharedPreferences.edit()) {
