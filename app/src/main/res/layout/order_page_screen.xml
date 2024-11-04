@@ -109,13 +109,6 @@
             android:padding="8dp"
             android:src="@drawable/ic_home" />
 
-        <ImageView
-            android:id="@+id/map_button"
-            android:layout_width="112dp"
-            android:layout_height="62dp"
-            android:padding="8dp"
-            android:src="@drawable/ic_map" />
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
