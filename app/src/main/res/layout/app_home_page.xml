@@ -19,11 +19,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Include the Active Order card layout -->
+
     <TextView
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="112dp"
         android:text="LabaDash"
         android:textColor="#ffffff"
         android:textSize="50dp"
@@ -32,7 +34,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Include the Active Order card layout -->
     <include
         android:id="@+id/active_order_card"
         layout="@layout/active_order_card"
@@ -88,12 +89,6 @@
             android:padding="8dp"
             android:src="@drawable/ic_home" />
 
-        <ImageView
-            android:id="@+id/mapIcon"
-            android:layout_width="112dp"
-            android:layout_height="62dp"
-            android:padding="8dp"
-            android:src="@drawable/ic_map" />
     </LinearLayout>
 
     <ScrollView

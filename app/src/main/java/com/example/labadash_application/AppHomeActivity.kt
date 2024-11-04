@@ -1,11 +1,10 @@
-// AppHomeActivity.kt
 package com.example.labadash_application
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -19,27 +18,32 @@ class AppHomeActivity : AppCompatActivity() {
 
         // Find the active order card layout
         val activeOrderCard = findViewById<LinearLayout>(R.id.active_order_card)
+        val orderNavigationButton = findViewById<TextView>(R.id.buttonText)
+        val menu = findViewById<ImageView>(R.id.menuIcon)
+
+        // Navigate to OrderScreenActivity when "Place New Order" button is clicked
+        orderNavigationButton.setOnClickListener {
+            val intent = Intent(this, OrderScreenActivity::class.java)
+            startActivity(intent)
+        }
+        menu.setOnClickListener {
+            val intent = Intent(this, ProfileMenuActivity::class.java)
+            startActivity(intent)
+        }
 
         // Check if ORDER_CONFIRMED flag is passed
-        val orderConfirmed = intent.getBooleanExtra("ORDER_CONFIRMED", false)
-        if (orderConfirmed) {
-            // Show the Active Order card with the latest order details
+        val orderPlaced = intent.getBooleanExtra("ORDER_PLACED", false)
+        if (orderPlaced) {
+            // Show the Active Order card
             displayLastOrder(activeOrderCard)
         } else {
             // Hide the Active Order card by default
             activeOrderCard.visibility = View.GONE
         }
-
-        // Navigation button to OrderScreenActivity
-        val navigateOrderScreenButton = findViewById<TextView>(R.id.buttonText)
-        navigateOrderScreenButton.setOnClickListener {
-            val intent = Intent(this, OrderScreenActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     private fun displayLastOrder(card: LinearLayout) {
-        val sharedPreferences = getSharedPreferences("ActiveOrders", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("ActiveOrders", MODE_PRIVATE)
         val lastOrderJson = sharedPreferences.getString("last_order", null)
 
         if (lastOrderJson != null) {

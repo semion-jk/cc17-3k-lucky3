@@ -1,11 +1,12 @@
 package com.example.labadash_application
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import org.json.JSONObject
 
 class OrderConfirmationActivity : AppCompatActivity() {
 
@@ -40,10 +41,31 @@ class OrderConfirmationActivity : AppCompatActivity() {
         // Set up the Confirm button
         val confirmButton = findViewById<Button>(R.id.confirm_button)
         confirmButton.setOnClickListener {
-            // Send back confirmation to AppHomeActivity
+            // Save order details when Confirm is clicked
+            saveOrder(serviceType, timeDate, laundryPreferences, pickupLocation)
+
+            // Navigate back to AppHomeActivity with ORDER_PLACED flag
             val intent = Intent(this, AppHomeActivity::class.java)
             intent.putExtra("ORDER_PLACED", true) // Add an extra indicating order is placed
             startActivity(intent)
         }
+    }
+
+    private fun saveOrder(serviceType: String, timeDate: String, laundryPreferences: String, pickupLocation: String) {
+        val sharedPreferences = getSharedPreferences("ActiveOrders", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        // Create a new order JSON object
+        val newOrder = JSONObject().apply {
+            put("serviceType", serviceType)
+            put("timeDate", timeDate)
+            put("laundryPreferences", laundryPreferences)
+            put("pickupLocation", pickupLocation)
+            put("status", "Pending")
+        }
+
+        // Save the latest order as 'last_order' in SharedPreferences
+        editor.putString("last_order", newOrder.toString())
+        editor.apply()
     }
 }

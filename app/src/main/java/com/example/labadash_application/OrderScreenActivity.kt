@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class OrderScreenActivity : AppCompatActivity() {
@@ -13,6 +15,13 @@ class OrderScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.order_page_screen)
+
+        val home = findViewById<ImageView>(R.id.home_button)
+
+        home.setOnClickListener {
+            val intent = Intent(this, AppHomeActivity::class.java)
+            startActivity(intent)
+        }
 
         // Find the spinners and EditText fields
         val serviceTypeSpinner = findViewById<Spinner>(R.id.service_type_spinner)
