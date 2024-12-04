@@ -55,7 +55,6 @@ class OrderConfirmationActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("ActiveOrders", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
-        // Create a new order JSON object
         val newOrder = JSONObject().apply {
             put("serviceType", serviceType)
             put("timeDate", timeDate)
@@ -64,8 +63,8 @@ class OrderConfirmationActivity : AppCompatActivity() {
             put("status", "Pending")
         }
 
-        // Save the latest order as 'last_order' in SharedPreferences
         editor.putString("last_order", newOrder.toString())
+        editor.putBoolean("order_submitted", true)
         editor.apply()
     }
 }

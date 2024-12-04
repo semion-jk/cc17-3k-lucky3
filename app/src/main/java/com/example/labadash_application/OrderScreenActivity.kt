@@ -9,6 +9,8 @@ import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import org.json.JSONArray
+import org.json.JSONObject
 
 class OrderScreenActivity : AppCompatActivity() {
 
@@ -50,9 +52,19 @@ class OrderScreenActivity : AppCompatActivity() {
             val laundryPreferences = laundryPreferencesSpinner.selectedItem.toString()
             val pickupLocation = pickupLocationInput.text.toString()
 
+            // Create an order JSON object to store the order data
+            val newOrder = JSONObject()
+            newOrder.put("serviceType", serviceType)
+            newOrder.put("timeDate", timeDate)
+            newOrder.put("laundryPreferences", laundryPreferences)
+            newOrder.put("pickupLocation", pickupLocation)
+
+            // Save the new order in SharedPreferences
+            saveOrderData(newOrder)
+
             // Create an Intent to start OrderConfirmationActivity
             val intent = Intent(this, OrderConfirmationActivity::class.java)
-            // Pass data to OrderConfirmationActivity
+            // Pass data to OrderConfirmationActivity (optional)
             intent.putExtra("SERVICE_TYPE", serviceType)
             intent.putExtra("TIME_DATE", timeDate)
             intent.putExtra("LAUNDRY_PREFERENCES", laundryPreferences)
@@ -61,5 +73,21 @@ class OrderScreenActivity : AppCompatActivity() {
             // Start OrderConfirmationActivity
             startActivity(intent)
         }
+    }
+
+    private fun saveOrderData(newOrder: JSONObject) {
+        val sharedPreferences = getSharedPreferences("ActiveOrders", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        // Retrieve existing orders
+        val existingOrdersJson = sharedPreferences.getString("orders", "[]")
+        val ordersArray = JSONArray(existingOrdersJson)
+
+        // Add the new order to the list of orders
+        ordersArray.put(newOrder)
+
+        // Save the updated list of orders back to SharedPreferences
+        editor.putString("orders", ordersArray.toString())
+        editor.apply()
     }
 }

@@ -7,6 +7,14 @@
     android:padding="16dp"
     android:layout_margin="8dp">
 
+    <LinearLayout
+        android:id="@+id/active_order_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp">
+    </LinearLayout>
+
     <TextView
         android:id="@+id/active_order_title"
         android:layout_width="wrap_content"
