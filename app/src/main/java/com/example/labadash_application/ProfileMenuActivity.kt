@@ -3,6 +3,8 @@ package com.example.labadash_application
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +14,7 @@ class ProfileMenuActivity : AppCompatActivity() {
 
     private lateinit var binding: ProfileMenuScreenBinding
     private lateinit var dbHelper: DataBaseHelper
+    private lateinit var logoutButton: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +22,18 @@ class ProfileMenuActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         dbHelper = DataBaseHelper(this)
+        logoutButton = binding.logout // Assuming logout button has this ID
+
+        // Set touch listener to detect clicks outside the button
+        val rootLayout = findViewById<View>(R.id.root_layout) // Replace with your root layout ID
+        rootLayout.setOnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_DOWN) {
+                if (!isClickOnButton(event)) {
+                    navigateToHome()
+                }
+            }
+            true
+        }
 
         loadUserProfile()
 
@@ -107,5 +122,23 @@ class ProfileMenuActivity : AppCompatActivity() {
             }
             .setNegativeButton("Cancel", null)
             .show()
+    }
+
+    private fun isClickOnButton(event: MotionEvent): Boolean {
+        val rect = android.graphics.Rect()
+        logoutButton.getHitRect(rect)
+        return rect.contains(event.x.toInt(), event.y.toInt())
+    }
+
+    private fun navigateToHome() {
+        val intent = Intent(this, AppHomeActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)  // Ensures no back stack
+        startActivity(intent)
+        finish()  // Finish the current activity so the user cannot go back to it
+    }
+
+    override fun onBackPressed() {
+        // Override back button to ensure user goes directly to home screen
+        navigateToHome()
     }
 }
